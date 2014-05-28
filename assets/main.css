@@ -99,13 +99,17 @@ td h4 {
 	position: fixed;
 	background-color: #2c3e50;
 	height: 100%;
-	left: 0;
 	top: 0;
 	bottom: 0;
+	left: -1000px;
 }
 
 .app-search {
 	margin: 10px;
+}
+
+.shopping .store-block {
+	left: 0;
 }
 
 .app-block {
@@ -121,6 +125,7 @@ td h4 {
 	margin: 20px;
 	top: 0;
 	left: 0;
+	cursor: pointer;
 }
 
 .image-container {

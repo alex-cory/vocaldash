@@ -15,6 +15,7 @@
   <body ng-controller="userInput" ng-class="{'shopping': shopping}">
     <section ng-class="{'active': active}">
       <a><img src="assets/hamburger.svg" alt="" class="hamburger" ng-click="openStore()"></a>
+      <div ng-include src="'partials/store.html'"></div>
       <div class="container">
         <div class="center-logo">
           <img src="assets/logo.svg" class="logo" alt="">
