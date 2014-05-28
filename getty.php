@@ -2,7 +2,7 @@
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
-   "vJiFfpcwxZdTDIhhidGR1DySjhdEi1RXe3dJnC2IvRO6utPELsQCaLPoMPN53zV12Qxmr9qmjnENrujbRCha9ydIMUN+OTPQfsQ8MY8DFu9r7y5gbdrXl3j7igoJyg1vcqfzAZhS63GKwD23LJciWqqGiaGMXydM7Idghjuh+yE=|77u/ODhjQWJyRHZLb2ZJTHZyeXcyMUcKMTE1NTcKCmwrbG5CZz09Cm4vQm5CZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+   "fn2fW9jHrdJjGRewsIAewDi8yYYrackL2lqV7kZpyu48uUyJSA4tVCPFfNPIWoNAZNLJYv5VJAG9P5AhxKl65VeT50pAvT2/8fSoF/P1FVVYuAzaz60HvEqtY/55uqAgTms8TPtJk2AByzSQ0eefWs5GUm0uPQG9/R5DLhbxuP8=|77u/citlQ3l5TnJia0J3V3o2TFFwVkkKMTE1NTcKCkR2Sm5CZz09CkZ2bG5CZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
    "Detail":"",
    "CoordinationId":""
  },
@@ -124,7 +124,7 @@ $results = exec($cmd);
 		$ul = "<ul>";
 		foreach ($images as $image) {
 			$i = array(
-				'title'    => $image['Title'], //[key( $image['stdClass'] )]['Title'],
+				'title'    => $image['Title'],
 				// this is the raw url in ['files'][TITLE]['raw_url']
 				'url'      => $image['UrlThumb'], //[key( $image['stdClass'] )]['UrlThumb'],
 			);
