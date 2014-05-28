@@ -13,7 +13,7 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
-
+var_dump($result['access_token']);
 // search string, let's look up "tree"
 $searchPhrase = "tree";
 
