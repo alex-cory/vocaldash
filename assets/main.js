@@ -3,6 +3,7 @@
 angular.module('main', [])
 
 .controller('userInput', function($scope){
+  $scope.active = false;
   //Microphone handler
   var mic = new Wit.Microphone($scope.microphone);
   var micRunning = false;
@@ -15,7 +16,7 @@ angular.module('main', [])
     micRunning = false;
   };
   mic.onresult = function (intent, entities) {
-    executeCommand();
+    console.log(intent);
   };
   mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
   //input field handler
@@ -26,17 +27,13 @@ angular.module('main', [])
   };
 
   var executeCommand = function(input){
+    $scope.active = true
     $scope.output = input;
-
   }
 
-
-
-  $scope.startMic = function(){
-    if(!micRunning)
-      mic.start();
-    else
-      mic.stop();
+  $scope.micAction = function(){
+    console.log("checking ... " + micRunning);
+    mic.start();
   };
 
 })
