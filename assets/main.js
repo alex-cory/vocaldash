@@ -6,6 +6,7 @@ angular.module('main', [])
 
 .controller('userInput', function($scope, $http){
   $scope.active = false;
+  $scope.outs = [];
   $scope.microphoneUrl = 'microphone';
   //Microphone handler
   var mic = new Wit.Microphone($scope.microphone);
@@ -48,8 +49,10 @@ angular.module('main', [])
   };
   var getTweets = function(){
     $http.get("/twittertest.json").success(function(data){
-      $scope.tweets = data.statuses;
-//      console.log(data);
+      var tweets = data.statuses;
+      console.log($scope.outs);
+      $scope.outs.push({'type': 'twitter', 'data': tweets});
+
     });
   };
   var executeCommand = function(input){
