@@ -76,7 +76,7 @@ angular.module('main', [])
     });
   };
   var getImages = function(filter){
-    $http.get("/getty.json").success(function(data){
+    $http.get("/getty.php").success(function(data){
       console.log(data);
       var images = data.statuses;
       $scope.outs.unshift({'type': 'images', 'data': images});
