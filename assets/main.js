@@ -27,14 +27,15 @@ angular.module('main', [])
     $scope.micRunning = false;
     $scope.microphoneUrl = "microphone";
   };
-  mic.onresult = function (intent, entities) {
+  mic.onresult = function (intent, entities, res) {
 //    console.log(intent);
-    if(intent != "errorWit did not recognize intent"){
+    if(intent != "errorWit did not recognize intent" && res.outcome.confidence > .5){
       $scope.active = true;
-      $scope.input = intent;
+      console.log();
+      $scope.input = res.msg_body;
       switch(intent){
         case "twitter":
-          $scope.output = "Here are twitter results!";
+          getTweets();
           break;
       }
       $scope.$apply();
@@ -45,14 +46,15 @@ angular.module('main', [])
     if(event.keyCode != 13) return;
     executeCommand($scope.input);
   };
-  var getTrendingTweets = function(){
-    $http.jsonp("https://api.twitter.com/1.1/trends/place.json?callback=JSON_CALLBACK").success(function(data) {
-      console.log("data = " + data);
+  var getTweets = function(){
+    $http.get("/twittertest.json").success(function(data){
+      $scope.tweets = data.statuses;
+//      console.log(data);
     });
   };
   var executeCommand = function(input){
     $scope.active = true;
-    getTrendingTweets();
+    getTweets();
   };
 
   $scope.micAction = function(){
