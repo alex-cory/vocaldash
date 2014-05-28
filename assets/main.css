@@ -67,6 +67,7 @@ table {
 	border-collapse: initial !important;
 	border-spacing: initial !important;
 	border: 1px solid #a1a1a1;
+	margin-bottom: 50px;
 }
 
 tr {
@@ -107,10 +108,11 @@ td h4 {
 
 .active .mic-icon {
 	width: 23px;
-	-webkit-transition: width .3s ease;  
-	-moz-transition: width .3s ease;  
-	-o-transition: width .3s ease;  
-	transition: width .3s ease;  
+	margin-left: 20px !important;
+	-webkit-transition: width .3s ease, margin-left .3s ease;  
+	-moz-transition: width .3s ease, margin-left .3s ease;  
+	-o-transition: width .3s ease, margin-left .3s ease;  
+	transition: width .3s ease, margin-left .3s ease;  
 }
 
 .active .mic-main {
