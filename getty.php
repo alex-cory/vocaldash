@@ -14,13 +14,14 @@ $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
 var_dump($result);
+$token = json_decode($result);
 // search string, let's look up "tree"
 $searchPhrase = "tree";
 
 // build array to query api for images
 $searchImagesArray = array (
 	"RequestHeader" => array (
-		"Token" => $result['access_token'] // Token received from a CreateSession/RenewSession API call
+		"Token" => $token['access_token'] // Token received from a CreateSession/RenewSession API call
 	),
 	"SearchForImagesRequestBody" => array (
  		"Query" => array (
@@ -35,7 +36,7 @@ $searchImagesArray = array (
 );
 
 // encode to json
-echo json_encode($searchImagesArray);
+//echo json_encode($searchImagesArray);
 
 
 $endpoint = "http://connect.gettyimages.com/v2/search/SearchForImages";
