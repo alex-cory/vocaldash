@@ -1,6 +1,6 @@
 <?php
 
-require 'libs/TwitterAPIExchange.php';
+require '/var/www/apicon/libs/TwitterAPIExchange.php';
 
 
 function searchTweetsByHashtag()
