@@ -122,6 +122,7 @@ $results = exec($cmd);
 		// d($images);
 
 		$ul = "<ul>";
+        var_dump($images);
 		foreach ($images as $image) {
 			$i = array(
 				'title'    => $image['Title'], //[key( $image['stdClass'] )]['Title'],

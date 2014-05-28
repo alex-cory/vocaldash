@@ -88,7 +88,6 @@ angular.module('main', [])
     $scope.active = true;
     $http.jsonp("http://api.wit.ai/message?q="+encodeURIComponent(input)+"&access_token=4ZC7OUMQCOEXHNK6GCE7VNTTI52XPDDF&callback=JSON_CALLBACK")
     .success(function(data){
-      console.log(data.outcome);
       var intent = data.outcome.intent;
       var entities = data.outcome.entities;
       var res = data.outcome;
@@ -96,6 +95,7 @@ angular.module('main', [])
       if(intent != "errorWit did not recognize intent" && data.outcome.confidence > .5){
       $scope.active = true;
       $scope.input = data.msg_body;
+      console.log(intent);
       switch(intent){
         case "twitter":
           getTweets();
