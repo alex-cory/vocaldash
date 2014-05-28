@@ -15,7 +15,7 @@ $result = file_get_contents($url, false, $context);
 
 var_dump($result);
 $token = json_encode($result);
-echo $token->access_token;
+print_r($token);
 
 // search string, let's look up "tree"
 $searchPhrase = "tree";
