@@ -61,7 +61,7 @@ li {
 }
 
 table {
-	border-radius: 15px;
+	border-radius: 10px;
 	background-color: #ffffff !important;
 	width: 100%;
 	border-collapse: initial !important;
@@ -75,6 +75,7 @@ tr {
 
 td {
 	padding: 10px !important;
+	border-bottom: 1px solid #a1a1a1 !important;
 }
 
 td h4 {
