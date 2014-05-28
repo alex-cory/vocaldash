@@ -40,9 +40,13 @@ angular.module('main', [])
     if(intent != "errorWit did not recognize intent" && res.outcome.confidence > .5){
       $scope.active = true;
       $scope.input = res.msg_body;
+      console.log(res);
       switch(intent){
         case "twitter":
           getTweets();
+          break;
+        case "images":
+          getImages(entities.search_query);
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
@@ -71,6 +75,15 @@ angular.module('main', [])
       console.log("error = " + data);
     });
   };
+  var getImages = function(filter){
+    $http.get("/getty.json").success(function(data){
+      console.log(data);
+      var images = data.statuses;
+      $scope.outs.unshift({'type': 'images', 'data': images});
+    }).error(function(data){
+      console.log("error = " + data);
+    });
+  };
   var executeCommand = function(input){
     $scope.active = true;
     $http.jsonp("http://api.wit.ai/message?q="+encodeURIComponent(input)+"&access_token=4ZC7OUMQCOEXHNK6GCE7VNTTI52XPDDF&callback=JSON_CALLBACK")
@@ -86,6 +99,9 @@ angular.module('main', [])
       switch(intent){
         case "twitter":
           getTweets();
+          break;
+        case "images":
+          getImages(entities.search_query);
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);

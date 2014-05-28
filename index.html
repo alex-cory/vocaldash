@@ -1,5 +1,7 @@
 <html ng-app="main">
   <head>
+    <title>Vocaldash</title>
+    <link rel="icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="microphone.css">
     <link rel="stylesheet" href="assets/main.css" />
     <!-- <link rel="stylesheet" href="/js/BizarroFinder/Web/styles/main.css"> -->
@@ -40,6 +42,9 @@
       <div ng-repeat="(id, out) in outs">
         <div ng-if="out.type == 'twitter'">
           <div ng-include src="'partials/twitter.html'"></div>
+        </div>
+        <div ng-if="out.type == 'image'">
+          <div ng-include src="'partials/getty.html'"></div>
         </div>
         <div ng-if="out.type == 'greeting'">
           <div class="container">
