@@ -1,7 +1,7 @@
 <?php
 
 require 'libs/TwitterAPIExchange.php';
-die("bye bye");
+
 
 function searchTweetsByHashtag()
 {
@@ -28,7 +28,7 @@ function searchTweetsByHashtag()
 	return $tweets;
 }
 
-searchTweetsByHashtag();
+echo searchTweetsByHashtag();
 
 
 function searchTweetsByPopularity()
@@ -56,7 +56,7 @@ function searchTweetsByPopularity()
 	return $results;
 }
 
-searchTweetsByPopularity();
+echo searchTweetsByPopularity();
 // class Twitter {
 
 //     /**
