@@ -61,15 +61,26 @@ li {
 }
 
 table {
-	border-radius: 5px;
-	border: 1px solid #a1a1a1;
-	background-color: #ffffff;
+	border-radius: 10px;
+	background-color: #ffffff !important;
 	width: 100%;
+	border-collapse: initial !important;
+	border-spacing: initial !important;
+	border: 1px solid #a1a1a1;
+	margin-bottom: 50px;
 }
 
 tr {
-	border-top: 1px solid #a1a1a1;
-	height: 50px;
+	height: 100px;
+}
+
+td {
+	padding: 10px !important;
+	border-bottom: 1px solid #a1a1a1 !important;
+}
+
+td h4 {
+	color: #3cf;
 }
 
 .image-container {
@@ -97,10 +108,11 @@ tr {
 
 .active .mic-icon {
 	width: 23px;
-	-webkit-transition: width .3s ease;  
-	-moz-transition: width .3s ease;  
-	-o-transition: width .3s ease;  
-	transition: width .3s ease;  
+	margin-left: 20px !important;
+	-webkit-transition: width .3s ease, margin-left .3s ease;  
+	-moz-transition: width .3s ease, margin-left .3s ease;  
+	-o-transition: width .3s ease, margin-left .3s ease;  
+	transition: width .3s ease, margin-left .3s ease;  
 }
 
 .active .mic-main {

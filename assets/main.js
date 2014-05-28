@@ -32,7 +32,6 @@ angular.module('main', [])
 //    console.log(intent);
     if(intent != "errorWit did not recognize intent" && res.outcome.confidence > .5){
       $scope.active = true;
-      console.log();
       $scope.input = res.msg_body;
       switch(intent){
         case "twitter":
@@ -57,7 +56,27 @@ angular.module('main', [])
   };
   var executeCommand = function(input){
     $scope.active = true;
-    getTweets();
+    $http.jsonp("http://api.wit.ai/message?q="+encodeURIComponent(input)+"&access_token=4ZC7OUMQCOEXHNK6GCE7VNTTI52XPDDF&callback=JSON_CALLBACK")
+    .success(function(data){
+      console.log(data.outcome);
+      var intent = data.outcome.intent;
+      var entities = data.outcome.entities;
+      var res = data.outcome;
+
+      if(intent != "errorWit did not recognize intent" && data.outcome.confidence > .5){
+      $scope.active = true;
+      $scope.input = data.msg_body;
+      switch(intent){
+        case "twitter":
+          getTweets();
+          break;
+      }
+      $scope.$apply();
+    }
+
+    }).error(function(data){
+
+    });
   };
 
   $scope.micAction = function(){
