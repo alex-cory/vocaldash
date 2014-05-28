@@ -36,7 +36,7 @@ $searchImagesArray = array (
 );
 
 // encode to json
-//echo json_encode($searchImagesArray);
+echo json_encode($searchImagesArray);
 
 
 $endpoint = "http://connect.gettyimages.com/v2/search/SearchForImages";
