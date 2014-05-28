@@ -1,9 +1,10 @@
-<table>
-
-	<tr ng-repeat="tweet in tweets">
-		<td>
-          <h4>{{tweet.user.name}}</h4>
-          <p>{{tweet.text}}</p>
-        </td>
-	</tr>
-</table>
+<div class="container">
+	<table class="col-md-6 col-md-offset-3">
+		<tr ng-repeat="tweet in tweets">
+			<td>
+	          <h4>{{tweet.user.name}}</h4>
+	          <p>{{tweet.text}}</p>
+	        </td>
+		</tr>
+	</table>
+</div>

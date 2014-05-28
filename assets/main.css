@@ -61,15 +61,24 @@ li {
 }
 
 table {
-	border-radius: 5px;
-	border: 1px solid #a1a1a1;
-	background-color: #ffffff;
+	border-radius: 15px;
+	background-color: #ffffff !important;
 	width: 100%;
+	border-collapse: initial !important;
+	border-spacing: initial !important;
+	border: 1px solid #a1a1a1;
 }
 
 tr {
-	border-top: 1px solid #a1a1a1;
-	height: 50px;
+	height: 100px;
+}
+
+td {
+	padding: 10px !important;
+}
+
+td h4 {
+	color: #3cf;
 }
 
 .image-container {
