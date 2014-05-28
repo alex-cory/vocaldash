@@ -4,6 +4,9 @@
 
 angular.module('main', [])
 
+.config(function($httpProvider){
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+})
 .controller('userInput', function($scope, $http){
   $scope.active = false;
   $scope.shopping = false;
@@ -60,11 +63,13 @@ angular.module('main', [])
     executeCommand($scope.input);
   };
   var getTweets = function(){
-    $http.get("/twittertest.json").success(function(data){
-      var tweets = data.statuses;
-      console.log($scope.outs);
-      $scope.outs.unshift({'type': 'twitter', 'data': tweets});
+    $http.jsonp("http://alexcory.com/alexcory/projects/apicon/twitter.php?cmd=mostpopular").success(function(data){
+      console.log(JSON.parse(data));
+//      var tweets = data.statuses;
+//      $scope.outs.unshift({'type': 'twitter', 'data': tweets});
 
+    }).error(function(data){
+      console.log("error = " + data);
     });
   };
   var executeCommand = function(input){
