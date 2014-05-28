@@ -2,6 +2,7 @@
   <head>
     <link rel="stylesheet" href="microphone.css">
     <link rel="stylesheet" href="assets/main.css" />
+    <!-- <link rel="stylesheet" href="/js/BizarroFinder/Web/styles/main.css"> -->
     <script src="assets/microphone.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-resource.min.js"></script>
@@ -30,16 +31,19 @@
           <div class="center-container col-md-6 col-md-offset-3">
             <img class="mic-icon" src="assets/{{microphoneUrl}}.svg" alt="" ng-model="microphone" ng-click="micAction()" ng-class="{'micActive': micRunning}">
             <p>Just click the microphone and talk!</p>
-            <input type="text" placeholder="Or enter your command here!" ng-keydown="typeAction($event)" ng-model="input"/>
-
+            <input type="text" placeholder="Or enter your command here!" name="keyword" id="keyword" value="" ng-keydown="typeAction($event)" ng-model="input"/>
+          </div>
+          <div id="results">
             <ul>
               <li>Find images of...</li>
               <li>What's trending...</li>
               <li>Search hashtag...</li>
             </ul>
           </div>
+          <h1>{{output}}</h1>
         </div>
       </div>
+
     </section>
     <section ng-model="output">
       <div class="container">
@@ -56,4 +60,27 @@
     </section>
 
   </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/js-extensions.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/json2.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/namespace.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/exception.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/ajax.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/bootstrapper.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/auth.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/search.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/ui.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/modal.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/builder.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/endpoints.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/requests.js"></script>
+  <script src="/js/BizarroFinder/Web/scripts/simpleTemplate.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      BizarroFinder.Bootstrapper().bind();
+      BizarroFinder.Auth().init();
+    });
+  </script>
+
 </html>

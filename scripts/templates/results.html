@@ -1,0 +1,12 @@
+﻿<div>
+  <ul data-if="SearchForImagesResult.ItemTotalCount > 0">
+    <li data-foreach="item" data-in="SearchForImagesResult.Images" data-embed-url="${item.UrlEmbed}">
+      <div class="image-container">
+        <div class="image-center">
+          <img src="${item.UrlThumb}" title="${item.Title}" alt="${item.Title}" />
+        </div>
+      </div>
+    </li>
+  </ul>
+  <p data-if="SearchForImagesResult.ItemTotalCount === 0">No results found, bummer!</p>
+</div>
