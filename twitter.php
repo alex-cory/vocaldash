@@ -2,7 +2,7 @@
 
 require 'libs/TwitterAPIExchange.php';
 
-                               /*
+
 function searchTweetsByHashtag()
 {
 	$settings = array(
@@ -28,7 +28,8 @@ function searchTweetsByHashtag()
 	print_r($tweets);
 }
 
-                             */
+searchTweetsByHashtag();
+                             /*
 
 
 function searchTweetsByPopularity()
@@ -63,7 +64,7 @@ function searchTweetsByPopularity()
 searchTweetsByPopularity();
 
 
-
+                           */
 
 // class Twitter {
 
