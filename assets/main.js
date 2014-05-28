@@ -10,11 +10,7 @@ angular.module('main', [])
   $scope.outs = [];
   $scope.microphoneUrl = 'microphone';
   $scope.openStore = function(){
-    if ($scope.shopping = true) {
-      $scope.shopping = false;
-    } else {
-      $scope.shopping = !$scope.shopping;
-    }
+    $scope.shopping = !$scope.shopping;
   };
   //Microphone handler
   var mic = new Wit.Microphone($scope.microphone);
