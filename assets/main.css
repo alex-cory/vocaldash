@@ -16,6 +16,10 @@ input {
 	margin-top: 50px;
 }
 
+.center-logo {
+	text-align: center;
+}
+
 .mic-icon {
 	width: 50px;
 }
@@ -30,6 +34,7 @@ input {
 
 .center-container {
 	margin: auto;
+	text-align: center;
 }
 
 .center-container p {
@@ -52,4 +57,27 @@ ul {
 
 li {
 	list-style: none;
+}
+
+/*Active States*/
+
+.active .mic-icon {
+	width: 23px;
+}
+
+.active .mic-main {
+	margin-top: 20px;
+}
+
+.active input {
+	width: 90%;
+	float: left;
+}
+
+.active .center-container p {
+	display: none;
+}
+
+.active ul {
+	display: none;
 }

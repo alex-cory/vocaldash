@@ -12,15 +12,20 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   </head>
   <body ng-controller="userInput">
-
     <div>
+
+
+
       <div class="container">
-        <img src="assets/logo.svg" class="logo" alt="">
+        <div class="center-logo">
+          <img src="assets/logo.svg" class="logo" alt="">
+        </div>
         <div class="mic-main">
           <div class="center-container col-md-6 col-md-offset-3">
-            <img class="mic-icon" src="assets/microphone.svg" alt="" ng-model="microphone" ng-click="startMic()">
+            <img class="mic-icon" src="assets/microphone.svg" alt="" ng-model="microphone" ng-click="startMic()" onclick="getElementById('userInput').addClass('active');">
             <p>Just click the microphone and talk!</p>
-            <input type="text" ng-keydown="typeAction($event)" ng-model="input"/>
+            <input type="text" placeholder="Or enter your command here!" ng-keydown="typeAction($event)" ng-model="input"/>
+
             <ul>
               <li>Search for images of...</li>
               <li>Post to Twitter...</li>
