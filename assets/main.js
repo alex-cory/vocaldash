@@ -46,7 +46,10 @@ angular.module('main', [])
           getTweets();
           break;
         case "images":
-          getImages(entities.search_query);
+          if(entities.search_query !== null)
+            getImages(entities.search_query);
+          else
+            getImages("");
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
@@ -76,9 +79,10 @@ angular.module('main', [])
     });
   };
   var getImages = function(filter){
-    $http.get("/getty.json").success(function(data){
-      console.log(data);
-      var images = data.statuses;
+    $http.get("/getty.php?filter=" + filter).success(function(data){
+      console.log("data = " + data);
+      var images = data;
+      console.log("filter = " + filter);
       $scope.outs.unshift({'type': 'images', 'data': images});
     }).error(function(data){
       console.log("error = " + data);
@@ -88,7 +92,6 @@ angular.module('main', [])
     $scope.active = true;
     $http.jsonp("http://api.wit.ai/message?q="+encodeURIComponent(input)+"&access_token=4ZC7OUMQCOEXHNK6GCE7VNTTI52XPDDF&callback=JSON_CALLBACK")
     .success(function(data){
-      console.log(data.outcome);
       var intent = data.outcome.intent;
       var entities = data.outcome.entities;
       var res = data.outcome;
@@ -96,12 +99,16 @@ angular.module('main', [])
       if(intent != "errorWit did not recognize intent" && data.outcome.confidence > .5){
       $scope.active = true;
       $scope.input = data.msg_body;
+      console.log(intent);
       switch(intent){
         case "twitter":
           getTweets();
           break;
         case "images":
-          getImages(entities.search_query);
+          if(entities.search_query !== null)
+            getImages(entities.search_query);
+          else
+            getImages("");
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
