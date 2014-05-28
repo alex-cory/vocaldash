@@ -76,9 +76,9 @@ angular.module('main', [])
     });
   };
   var getImages = function(filter){
-    $http.get("/getty.php").success(function(data){
+    $http.get("/getty.php?filter=" + filter).success(function(data){
       var images = data.SearchForImagesResult.Images;
-      console.log(images);
+      console.log(filter);
       $scope.outs.unshift({'type': 'images', 'data': images});
     }).error(function(data){
       console.log("error = " + data);

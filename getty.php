@@ -66,7 +66,7 @@ curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
        "StartDate":""
      },
      "EventId":"",
-     "SearchPhrase":"dog"
+     "SearchPhrase":"'+$_GET['filter']+'"
    },
    "ResultOptions":{
      "IncludeKeywords":false,
