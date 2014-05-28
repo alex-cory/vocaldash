@@ -102,6 +102,11 @@ td h4 {
 	top: 0;
 	bottom: 0;
 	left: -1000px;
+	-webkit-transition: left .5s ease;  
+	-moz-transition: left .5s ease;  
+	-o-transition: left .5s ease;  
+	transition: left .5s ease;  
+	box-shadow: 2px 0px 2px #232323;
 }
 
 .store-block input {
@@ -127,6 +132,10 @@ td h4 {
 
 .shopping .store-block {
 	left: 0;
+	-webkit-transition: left .5s ease;  
+	-moz-transition: left .5s ease;  
+	-o-transition: left .5s ease;  
+	transition: left .5s ease;  
 }
 
 
