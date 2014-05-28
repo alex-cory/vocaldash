@@ -60,6 +60,12 @@ li {
 }
 
 /*Active States*/
+.active .logo{
+  width: 12%;
+  margin-top: 20px;
+  transition: transform 2s;
+  -webkit-transition: transform 2s;
+}
 
 .active .mic-icon {
 	width: 23px;
