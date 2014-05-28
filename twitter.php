@@ -1,5 +1,4 @@
 <?php
-die("hello");
 require 'libs/twitter-api-php/TwitterAPIExchange.php';
 
 
