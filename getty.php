@@ -8,7 +8,7 @@ $searchImagesArray = array (
 	"RequestHeader" => array (
 		"Token" => "3hbm63mxsjkrefm6rjfs99jnSecret:mMWNtfWNxqhZQHPFu76tgcds648AEAGNW6hJXzYmGtDKM" // Token received from a CreateSession/RenewSession API call
 	),
-	"SearchForImages2RequestBody" => array (
+	"SearchForImagesRequestBody" => array (
  		"Query" => array (
 			"SearchPhrase" => $searchPhrase
  		),
@@ -24,7 +24,7 @@ $searchImagesArray = array (
 echo json_encode($searchImagesArray);
 
 
-$endpoint = "http://connect.gettyimages.com/v1/search/SearchForImages";
+$endpoint = "http://connect.gettyimages.com/v2/search/SearchForImages";
 
 // create client and set json data and datatype
 $httpClient = new Zend_Http_Client($endpoint);
