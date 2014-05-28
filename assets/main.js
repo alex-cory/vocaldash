@@ -4,6 +4,7 @@ angular.module('main', [])
 
 .controller('userInput', function($scope, $http){
   $scope.active = false;
+  $scope.microphoneUrl = 'microphone';
   //Microphone handler
   var mic = new Wit.Microphone($scope.microphone);
   $scope.micRunning = false;
@@ -17,13 +18,16 @@ angular.module('main', [])
   mic.onaudiostart = function () {
     console.log("mic started");
     $scope.micRunning = true;
+    $scope.microphoneUrl = "none";
   };
   mic.onaudioend = function () {
     console.log("mic stopped");
     $scope.micRunning = false;
+    $scope.microphoneUrl = "microphone";
   };
   mic.onresult = function (intent, entities) {
-    console.log(entities);
+
+    $scope.active = true;
   };
   mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
   //input field handler
@@ -33,7 +37,7 @@ angular.module('main', [])
 
   };
   var getTrendingTweets = function(){
-    $http.jsonp("https://api.twitter.com/1.1/trends/place.json?id=1").error(function(data, status, headers, config) {
+    $http.jsonp("https://api.twitter.com/1.1/trends/place.json?callback=JSON_CALLBACK").error(function(data, status, headers, config) {
       console.log("data = " + data);
     });
   };
