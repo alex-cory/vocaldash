@@ -13,7 +13,6 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
-var_dump($result);
 
 // search string, let's look up "tree"
 $searchPhrase = "tree";
@@ -21,7 +20,7 @@ $searchPhrase = "tree";
 // build array to query api for images
 $searchImagesArray = array (
 	"RequestHeader" => array (
-		"Token" => "3hbm63mxsjkrefm6rjfs99jn" // Token received from a CreateSession/RenewSession API call
+		"Token" => $result['access_token'] // Token received from a CreateSession/RenewSession API call
 	),
 	"SearchForImagesRequestBody" => array (
  		"Query" => array (
