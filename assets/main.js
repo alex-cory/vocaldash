@@ -77,8 +77,8 @@ angular.module('main', [])
   };
   var getImages = function(filter){
     $http.get("/getty.php").success(function(data){
-      console.log(data);
-      var images = data.statuses;
+      var images = data.SearchForImagesResult.Images;
+      console.log(images);
       $scope.outs.unshift({'type': 'images', 'data': images});
     }).error(function(data){
       console.log("error = " + data);
