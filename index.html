@@ -1,65 +1,80 @@
 <html>
-<head>
-  <link rel="stylesheet" href="microphone.css">
-  <link rel="stylesheet" href="assets/main.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-resource.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-route.min.js"></script>
-  <script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
-  <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-cookies.min.js"></script>
-  <script src="assets/app.js"></script>
-</head>
-<body style="text-align: center;">
-  <div id="microphone"></div>
-  <pre id="result"></pre>
-  <div id="info"></div>
-  <script src="microphone.js"></script>
+  <head>
+    <link rel="stylesheet" href="microphone.css">
+    <link rel="stylesheet" href="assets/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular-route.min.js"></script>
+    <script src="http://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-cookies.min.js"></script>
+    <script src="assets/main.js"></script>
+  </head>
+  <body style="text-align: center;">
 
-  <script>
-    var mic = new Wit.Microphone(document.getElementById("microphone"));
-    var info = function (msg) {
-      document.getElementById("info").innerHTML = msg;
-    };
-    mic.onready = function () {
-      info("Microphone is ready to record");
-    };
-    mic.onaudiostart = function () {
-      info("Recording started");
-    };
-    mic.onaudioend = function () {
-      info("Recording stopped, processing started");
-    };
-    mic.onerror = function (err) {
-      info("Error: " + err);
-    };
-    mic.onresult = function (intent, entities) {
-      var r = kv("intent", intent);
 
-      for (var k in entities) {
-        var e = entities[k];
 
-        if (!(e instanceof Array)) {
-          r += kv(k, e.value);
-        } else {
-          for (var i = 0; i < e.length; i++) {
-            r += kv(k, e[i].value);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Javascript for the Microphone-->
+    <script src="microphone.js"></script>
+    <script>
+      var mic = new Wit.Microphone(document.getElementById("microphone"));
+      var info = function (msg) {
+        document.getElementById("info").innerHTML = msg;
+      };
+      mic.onready = function () {
+        info("Microphone is ready to record");
+      };
+      mic.onaudiostart = function () {
+        info("Recording started");
+      };
+      mic.onaudioend = function () {
+        info("Recording stopped, processing started");
+      };
+      mic.onerror = function (err) {
+        info("Error: " + err);
+      };
+      mic.onresult = function (intent, entities) {
+        var r = kv("intent", intent);
+
+        for (var k in entities) {
+          var e = entities[k];
+
+          if (!(e instanceof Array)) {
+            r += kv(k, e.value);
+          } else {
+            for (var i = 0; i < e.length; i++) {
+              r += kv(k, e[i].value);
+            }
           }
         }
-      }
 
-      document.getElementById("result").innerHTML = r;
-    };
-    mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
-    // mic.start();
-    // mic.stop();
+        document.getElementById("result").innerHTML = r;
+      };
+      mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
+      // mic.start();
+      // mic.stop();
 
-    function kv (k, v) {
-      if (toString.call(v) !== "[object String]") {
-        v = JSON.stringify(v);
+      function kv (k, v) {
+        if (toString.call(v) !== "[object String]") {
+          v = JSON.stringify(v);
+        }
+        return k + "=" + v + "\n";
       }
-      return k + "=" + v + "\n";
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
