@@ -25,7 +25,7 @@ function searchTweetsByHashtag()
 	$tweets = $twitter->setGetfield($getfield)
 	             	   ->buildOauth($url, $requestMethod)
 	             	   ->performRequest();
-	return $tweets;
+	return json_encode($tweets);
 }
 
 echo searchTweetsByHashtag();
@@ -53,7 +53,7 @@ function searchTweetsByPopularity()
 	$results = $twitter->setGetfield($getfield)
 	            	   ->buildOauth($url, $requestMethod)
 	            	   ->performRequest();
-	return $results;
+	return json_encode($results);
 }
 
 echo searchTweetsByPopularity();
