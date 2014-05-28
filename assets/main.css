@@ -31,7 +31,19 @@ input {
 
 .mic-main img {
 	margin-bottom: 20px;
+	min-height: 86px;
 }
+
+.micActive{
+    background-image: url(/assets/red.gif);
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    -webkit-transition: background-image .3s ease;  
+	-moz-transition: background-image .3s ease;  
+	-o-transition: background-image .3s ease;  
+	transition: background-image .3s ease;  
+  }
 
 .center-container {
 	margin: auto;
@@ -104,6 +116,13 @@ td h4 {
 	color: #fff;
 }
 
+.hamburger {
+	position: absolute;
+	margin: 20px;
+	top: 0;
+	left: 0;
+}
+
 .image-container {
 	padding: 20px;
 	width: 100%;
@@ -129,6 +148,7 @@ td h4 {
 
 .active .mic-icon {
 	width: 23px;
+	min-height: 36px;
 	margin-left: 20px !important;
 	-webkit-transition: width .3s ease, margin-left .3s ease;  
 	-moz-transition: width .3s ease, margin-left .3s ease;  
