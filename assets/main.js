@@ -64,6 +64,7 @@ angular.module('main', [])
   };
   var getTweets = function(){
     $http.get("/twittertest.json").success(function(data){
+      console.log(data);
       var tweets = data.statuses;
       $scope.outs.unshift({'type': 'twitter', 'data': tweets});
     }).error(function(data){
