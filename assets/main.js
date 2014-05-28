@@ -1,39 +1,66 @@
 
 
+
+
 angular.module('main', [])
 
-.controller('userInput', function($scope){
+.controller('userInput', function($scope, $http){
   $scope.active = false;
+  $scope.microphoneUrl = 'microphone';
   //Microphone handler
   var mic = new Wit.Microphone($scope.microphone);
-  var micRunning = false;
+  $scope.micRunning = false;
+  mic.onready = function(){
+//    console.log("ready")
+  };
+
+  mic.onerror = function(err){
+    console.log("error" + err)
+  };
   mic.onaudiostart = function () {
     console.log("mic started");
-    micRunning = true;
+    $scope.micRunning = true;
+    $scope.microphoneUrl = "none";
   };
   mic.onaudioend = function () {
-    console.log("mic stopped");
-    micRunning = false;
+//    console.log("mic stopped");
+    $scope.micRunning = false;
+    $scope.microphoneUrl = "microphone";
   };
   mic.onresult = function (intent, entities) {
-    console.log(intent);
+//    console.log(intent);
+    if(intent != "errorWit did not recognize intent"){
+      $scope.active = true;
+      $scope.input = intent;
+      switch(intent){
+        case "twitter":
+          $scope.output = "Here are twitter results!";
+          break;
+      }
+      $scope.$apply();
+    }
   };
   mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
-  //input field handler
-  $scope.typeAction = function(event){
+    $scope.typeAction = function(event){
     if(event.keyCode != 13) return;
     executeCommand($scope.input);
-
+  };
+  var getTrendingTweets = function(){
+    $http.jsonp("https://api.twitter.com/1.1/trends/place.json?callback=JSON_CALLBACK").success(function(data) {
+      console.log("data = " + data);
+    });
+  };
+  var executeCommand = function(input){
+    $scope.active = true;
+    getTrendingTweets();
   };
 
-  var executeCommand = function(input){
-    $scope.active = true
-    $scope.output = input;
-  }
-
   $scope.micAction = function(){
-    console.log("checking ... " + micRunning);
-    mic.start();
+    console.log("test");
+    if(!$scope.micRunning)
+      mic.start();
+    else
+      mic.stop();
   };
 
 })
