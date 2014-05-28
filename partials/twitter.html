@@ -1,6 +1,9 @@
 <table>
-	<th>Trending</th>
+
 	<tr ng-repeat="tweet in tweets">
-		<td>{{}}</td>
+		<td>
+          <h4>{{tweet.user.name}}</h4>
+          <p>{{tweet.text}}</p>
+        </td>
 	</tr>
 </table>
