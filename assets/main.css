@@ -1,5 +1,5 @@
 body {
-	background-color: #ecf0f1;
+	background-color: #ecf0f1 !important;
 }
 
 input {
@@ -8,12 +8,12 @@ input {
 	height: 40px;
 	font-size: 18px !important;
 	padding-left: 10px;
+	color: #2c3e50;
 }
 
 .logo {
-	float: left;
 	width: 20%;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
 .mic-icon {
@@ -21,7 +21,7 @@ input {
 }
 
 .mic-main {
-	margin-top: 30vh;
+	margin-top: 20vh;
 }
 
 .mic-main img {
