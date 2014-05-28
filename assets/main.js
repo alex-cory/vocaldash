@@ -63,8 +63,7 @@ angular.module('main', [])
     executeCommand($scope.input);
   };
   var getTweets = function(){
-    $http.jsonp("/mostpopular.php").success(function(data){
-      console.log(JSON.parse(data));
+    $http.get("/twittertest.json").success(function(data){
       var tweets = data.statuses;
       $scope.outs.unshift({'type': 'twitter', 'data': tweets});
     }).error(function(data){
