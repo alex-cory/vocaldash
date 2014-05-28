@@ -44,10 +44,7 @@
           <div ng-include src="'partials/twitter.html'"></div>
         </div>
         <div ng-if="out.type == 'images'">
-          <div ng-repeat="image in out.data">
-            <h1>{{image.Caption}}</h1>
-          </div>
-
+          <div ng-include src="'partials/getty.html'"></div>
         </div>
         <div ng-if="out.type == 'greeting'">
           <div class="container">
