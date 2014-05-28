@@ -1,5 +1,4 @@
 <?php
-echo $_GET['filter'];
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
@@ -67,7 +66,7 @@ curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
        "StartDate":""
      },
      "EventId":"",
-     "SearchPhrase":"'+$_GET['filter']+'"
+     "SearchPhrase":"'. $_GET['filter'].'"
    },
    "ResultOptions":{
      "IncludeKeywords":false,
