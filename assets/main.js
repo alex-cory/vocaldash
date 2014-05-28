@@ -32,7 +32,6 @@ angular.module('main', [])
   }
 
   $scope.micAction = function(){
-    console.log("checking ... " + micRunning);
     mic.start();
   };
 
