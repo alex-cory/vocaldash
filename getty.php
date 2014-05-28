@@ -45,9 +45,7 @@ if ($response->isSuccessful()) {
 
 // retrieves the image array of stdObjects
 $images = $body->SearchForImagesResult->Images;
-
+echo json_encode($images);
 // total count of items matching this search in the API
-
 $itemTotalCount = $body->SearchForImagesResult->ItemTotalCount;
-echo json_encode($itemTotalCount);
 ?>
