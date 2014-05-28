@@ -22,6 +22,7 @@ input {
 
 .mic-icon {
 	width: 50px;
+	cursor: pointer;
 }
 
 .mic-main {
