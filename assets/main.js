@@ -15,7 +15,7 @@ angular.module('main', [])
   };
 
   mic.onerror = function(err){
-//    console.log("error" + err)
+    console.log("error" + err)
   };
   mic.onaudiostart = function () {
     console.log("mic started");
