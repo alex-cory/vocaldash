@@ -1,18 +1,9 @@
-angular.module('app', ['ngRoutes'])
-
-.config(function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      controller:'mainCtrl',
-      templateUrl:'partials/index.html'
-    })
-    .otherwise({
-      redirectTo:'/'
-    });
-})
 
 
+angular.module('main', ['ngRoutes'])
 
 .controller('mainCtrl', function($scope, $http){
+   $http.get('/someUrl').success(function(data){
 
+   });
 })
