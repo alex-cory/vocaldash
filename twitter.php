@@ -1,5 +1,6 @@
 <?php
 require 'libs/twitter-api-php/TwitterAPIExchange.php';
+echo "hello";
 
 function searchTweetsByHashtag()
 {
