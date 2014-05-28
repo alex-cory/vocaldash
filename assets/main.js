@@ -18,7 +18,7 @@ angular.module('main', [])
 //    console.log("error" + err)
   };
   mic.onaudiostart = function () {
-//    console.log("mic started");
+    console.log("mic started");
     $scope.micRunning = true;
     $scope.microphoneUrl = "none";
   };
