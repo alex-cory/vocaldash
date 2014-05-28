@@ -1,0 +1,9 @@
+﻿<div data-page="${page}">
+  <aside data-if="pages > 0">
+    <span class="pagination previous-page" data-if="page > 1">&lt;</span>
+    <span class="pagination disabled" data-if="page === 1">&lt;</span>
+    Page ${page} of ${pages}
+    <span class="pagination next-page" data-if="page < pages">&gt;</span>
+    <span class="pagination disabled" data-if="page === pages">&gt;</span>
+  </aside>
+</div>
