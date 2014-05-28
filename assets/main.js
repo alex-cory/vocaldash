@@ -1,9 +1,16 @@
 
 
-angular.module('main', ['ngRoutes'])
+angular.module('main', [])
 
-.controller('mainCtrl', function($scope, $http){
-   $http.get('/someUrl').success(function(data){
+.controller('userInput', function($scope){
+  var mic = new Wit.Microphone($scope.microphone);
+  mic.onaudiostart = function () {
+    console.log("micSTarted");
+  };
+  mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
+  $scope.startMic = function(){
+    mic.start();  
 
-   });
+  };
+
 })
