@@ -40,11 +40,11 @@ angular.module('main', [])
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
           if(rand == 0)
-            $scope.outs.push({'type':'greeting', 'data': 'Hello ... Jerk'});
+            $scope.outs.unshift({'type':'greeting', 'data': 'Hello ... Jerk'});
           else if(rand == 1)
-            $scope.outs.push({'type':'greeting', 'data': 'Oh ... You again'});
+            $scope.outs.unshift({'type':'greeting', 'data': 'Oh ... You again'});
           else
-            $scope.outs.push({'type':'greeting', 'data': 'Oh, I didn\'t see you there ... you know with the whole not having eyes and what not'});
+            $scope.outs.unshift({'type':'greeting', 'data': 'Oh, I didn\'t see you there ... you know with the whole not having eyes and what not'});
           break;
       }
       $scope.$apply();
@@ -59,7 +59,7 @@ angular.module('main', [])
     $http.get("/twittertest.json").success(function(data){
       var tweets = data.statuses;
       console.log($scope.outs);
-      $scope.outs.push({'type': 'twitter', 'data': tweets});
+      $scope.outs.unshift({'type': 'twitter', 'data': tweets});
 
     });
   };
@@ -81,12 +81,13 @@ angular.module('main', [])
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
+
           if(rand == 0)
-            $scope.outs.push({'type':'greeting', 'data': 'Hello ... Jerk'});
+            $scope.outs.unshift({'type':'greeting', 'data': 'Hello ... Jerk'});
           else if(rand == 1)
-            $scope.outs.push({'type':'greeting', 'data': 'Oh ... You again'});
+            $scope.outs.unshift({'type':'greeting', 'data': 'Oh ... You again'});
           else
-            $scope.outs.push({'type':'greeting', 'data': 'Oh, I didn\'t see you there ... you know with the whole not having eyes and what not'});
+            $scope.outs.unshift({'type':'greeting', 'data': 'Oh, I didn\'t see you there ... you know with the whole not having eyes and what not'});
           break;
       }
       $scope.$apply();
