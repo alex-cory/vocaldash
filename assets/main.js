@@ -56,6 +56,7 @@ angular.module('main', [])
   };
 
   $scope.micAction = function(){
+    console.log("test");
     if(!$scope.micRunning)
       mic.start();
     else
