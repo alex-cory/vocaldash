@@ -46,7 +46,10 @@ angular.module('main', [])
           getTweets();
           break;
         case "images":
-          getImages(entities.search_query);
+          if(entities.search_query !== null)
+            getImages(entities.search_query);
+          else
+            getImages("");
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
@@ -102,7 +105,10 @@ angular.module('main', [])
           getTweets();
           break;
         case "images":
-          getImages(entities.search_query);
+          if(entities.search_query !== null)
+            getImages(entities.search_query);
+          else
+            getImages("");
           break;
         case "greeting":
           var rand = parseInt((Math.random() * 100) % 3, 10);
