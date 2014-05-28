@@ -74,29 +74,51 @@ li {
 
 /*Active States*/
 .active .logo{
-  width: 12%;
-  margin-top: 20px;
-  transition: transform 2s;
-  -webkit-transition: transform 2s;
+	width: 12%;
+	margin-top: 20px;
+	-webkit-transition: width .5s ease, margin-top .5s ease;  
+	-moz-transition: width .5s ease, margin-top .5s ease;  
+	-o-transition: width .5s ease, margin-top .5s ease;  
+	transition: width .5s ease, margin-top .5s ease;  
 }
 
 .active .mic-icon {
 	width: 23px;
+	-webkit-transition: width .3s ease;  
+	-moz-transition: width .3s ease;  
+	-o-transition: width .3s ease;  
+	transition: width .3s ease;  
 }
 
 .active .mic-main {
 	margin-top: 20px;
+	-webkit-transition: margin-top .3s ease;  
+	-moz-transition: margin-top .3s ease;  
+	-o-transition: margin-top .3s ease;  
+	transition: margin-top .3s ease;  
 }
 
 .active input {
 	width: 90%;
 	float: left;
+	-webkit-transition: width .3s ease, float .3s ease;  
+	-moz-transition: width .3s ease, float .3s ease;  
+	-o-transition: width .3s ease, float .3s ease;  
+	transition: width .3s ease, float .3s ease;  
 }
 
 .active .center-container p {
 	display: none;
+	-webkit-transition: display .3s ease;  
+	-moz-transition: display .3s ease;  
+	-o-transition: display .3s ease;  
+	transition: display .3s ease;  
 }
 
 .active ul {
 	display: none;
+	-webkit-transition: display .3s ease;  
+	-moz-transition: display .3s ease;  
+	-o-transition: display .3s ease;  
+	transition: display .3s ease;  
 }
