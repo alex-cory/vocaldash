@@ -1,16 +1,9 @@
+angular.module('app', [])
 
 
-angular.module('app', ['ngRoute', 'ngCookies', 'ngSanitize'])
+.controller('mainCtrl', function($scope, $http){
+   $http.get('/').success(function(data){
 
-.config(function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl:'partials/index.html'
-    })
-    .otherwise({
-      redirectTo:'/'
-    });
-})
 
-.controller('headerCtrl', function($scope, Posts, $cookies, $location){
+   });
 })
