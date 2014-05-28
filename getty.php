@@ -23,7 +23,7 @@ $searchPhrase = "tree";
 // build array to query api for images
 $searchImagesArray = array (
 	"RequestHeader" => array (
-		"Token" => $token->access_token // Token received from a CreateSession/RenewSession API call
+		"Token" => $token['access_token'] // Token received from a CreateSession/RenewSession API call
 	),
 	"SearchForImagesRequestBody" => array (
  		"Query" => array (
