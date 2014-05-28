@@ -23,6 +23,7 @@
           <div class="center-container col-md-6 col-md-offset-3">
             <img class="mic-icon" src="assets/{{microphoneUrl}}.svg" alt="" ng-model="microphone" ng-click="micAction()" ng-class="{'micActive': micRunning}">
             <p>Just click the microphone and talk!</p>
+
             <input type="text" placeholder="Or enter your command here!" name="keyword" id="keyword" value="" ng-keydown="typeAction($event)" ng-model="input"/>
             <ul>
               <li>Find images of...</li>
@@ -38,6 +39,17 @@
       <div ng-repeat="(id, out) in outs">
         <div ng-if="out.type == 'twitter'">
           <div ng-include src="'partials/twitter.html'"></div>
+        </div>
+        <div ng-if="out.type == 'greeting'">
+          <div class="container">
+      	    <table class="col-md-6 col-md-offset-3">
+              <tr>
+                <th>
+                  <center><h4>{{out.data}}</h4></center>
+                </th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </section>

@@ -37,6 +37,15 @@ angular.module('main', [])
         case "twitter":
           getTweets();
           break;
+        case "greeting":
+          var rand = parseInt((Math.random() * 100) % 3, 10);
+          if(rand == 0)
+            $scope.outs.push({'type':'greeting', 'data': 'Hello ... Jerk'});
+          else if(rand == 1)
+            $scope.outs.push({'type':'greeting', 'data': 'Oh ... You again'});
+          else
+            $scope.outs.push({'type':'greeting', 'data': 'Oh, I didn\'t see you there ... you know with the whole not having eyes and what not'});
+          break;
       }
       $scope.$apply();
     }
@@ -69,6 +78,15 @@ angular.module('main', [])
       switch(intent){
         case "twitter":
           getTweets();
+          break;
+        case "greeting":
+          var rand = parseInt((Math.random() * 100) % 3, 10);
+          if(rand == 0)
+            $scope.outs.push({'type':'greeting', 'data': 'Hello ... Jerk'});
+          else if(rand == 1)
+            $scope.outs.push({'type':'greeting', 'data': 'Oh ... You again'});
+          else
+            $scope.outs.push({'type':'greeting', 'data': 'Oh, I didn\'t see you there ... you know with the whole not having eyes and what not'});
           break;
       }
       $scope.$apply();
