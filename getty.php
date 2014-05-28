@@ -15,7 +15,7 @@ $result = file_get_contents($url, false, $context);
 
 var_dump($result);
 $token = json_encode($result);
-echo $token['access_token'];
+echo $token->access_token;
 
 // search string, let's look up "tree"
 $searchPhrase = "tree";
@@ -23,7 +23,7 @@ $searchPhrase = "tree";
 // build array to query api for images
 $searchImagesArray = array (
 	"RequestHeader" => array (
-		"Token" => $token['access_token'] // Token received from a CreateSession/RenewSession API call
+		"Token" => $token->access_token // Token received from a CreateSession/RenewSession API call
 	),
 	"SearchForImagesRequestBody" => array (
  		"Query" => array (
