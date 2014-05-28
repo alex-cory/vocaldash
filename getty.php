@@ -14,7 +14,7 @@ $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
 var_dump($result);
-$token = json_decode($result);
+$token = json_encode($result);
 echo $token['access_token'];
 
 // search string, let's look up "tree"
