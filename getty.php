@@ -14,7 +14,7 @@ $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
 var_dump($result);
-$token = json_encode($result);
+$token = stripslashes(json_encode($result));
 print_r($token);
 
 // search string, let's look up "tree"
