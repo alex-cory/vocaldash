@@ -1,12 +1,27 @@
 <?php
 
+$url = 'https://connect.gettyimages.com/oauth2/token';
+
+
+// use key 'http' even if you send the request to https://...
+$options = array(
+    'http' => array(
+        'method'  => 'POST',
+        'content' => 'grant_type=client_credentials&client_id=dte5xunv2zb9wtpawtsfwkvg&client_secret=nzakAxZy6PYuXcMXnrmvHGFcsy2pdRavvkfTveEjMTtGZ',
+    ),
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+
+var_dump($result);
+
 // search string, let's look up "tree"
 $searchPhrase = "tree";
 
 // build array to query api for images
 $searchImagesArray = array (
 	"RequestHeader" => array (
-		"Token" => "3hbm63mxsjkrefm6rjfs99jnSecret:mMWNtfWNxqhZQHPFu76tgcds648AEAGNW6hJXzYmGtDKM" // Token received from a CreateSession/RenewSession API call
+		"Token" => "3hbm63mxsjkrefm6rjfs99jn" // Token received from a CreateSession/RenewSession API call
 	),
 	"SearchForImagesRequestBody" => array (
  		"Query" => array (
