@@ -1,7 +1,7 @@
 <?php
 
-require '/var/www/apicon/libs/TwitterAPIExchange.php';
-
+require 'libs/TwitterAPIExchange.php';
+die("bye bye");
 
 function searchTweetsByHashtag()
 {
@@ -11,7 +11,8 @@ function searchTweetsByHashtag()
 		'consumer_key'              => "5YPySVMBsQAOcD6oxtRpmo4aV",
 		'consumer_secret'           => "yNLtuicpXuJtkHPa4yAISNtAlnrK6lXp5Sne5OfGKaRevx4zG3"
 	);
-	$_REQUEST['q'] = 'cool';
+    if(!empty($_REQUEST['q']))
+      $_REQUEST['q'] = 'cool';
 
 	$url = 'https://api.twitter.com/1.1/search/tweets.json';
 	$getfield = '?q=' . urlencode($_REQUEST['q']) . '&' .
