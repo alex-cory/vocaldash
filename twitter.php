@@ -5,6 +5,7 @@ require 'libs/TwitterAPIExchange.php';
 
 function searchTweetsByHashtag()
 {
+    die("one");
 	$settings = array(
 		'oauth_access_token'        => "213426312-YWNfqUV9O3M2zqYOJ8eaNTTWwpgxPKOoF2UlyzWf",
 		'oauth_access_token_secret' => "0dGHBb6zjridZ8esQmMIEPj6oVLUcBNCMmlRRsIKbtoqu",
