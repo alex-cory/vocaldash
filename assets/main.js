@@ -79,10 +79,10 @@ angular.module('main', [])
     });
   };
   var getImages = function(filter){
-    $http.get("/getty.php?filter=" + filter.value).success(function(data){
-      console.log("data = " + data);
+    $http.get("/getty.php?filter=" + filter).success(function(data){
+      console.log(data);
       var images = data;
-      console.log(filter.value);
+      console.log(filter);
       $scope.outs.unshift({'type': 'images', 'data': images});
     }).error(function(data){
       console.log("error = " + data);
