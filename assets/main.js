@@ -6,8 +6,12 @@ angular.module('main', [])
 
 .controller('userInput', function($scope, $http){
   $scope.active = false;
+  $scope.shopping = false;
   $scope.outs = [];
   $scope.microphoneUrl = 'microphone';
+  $scope.openStore = function(){
+    $scope.shopping = !$scope.shopping;
+  };
   //Microphone handler
   var mic = new Wit.Microphone($scope.microphone);
   $scope.micRunning = false;

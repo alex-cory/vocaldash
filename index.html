@@ -12,9 +12,9 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   </head>
-  <body ng-controller="userInput">
+  <body ng-controller="userInput" ng-class="{'shopping': shopping}">
     <section ng-class="{'active': active}">
-      <a href=""><img src="assets/hamburger.svg" alt="" class="hamburger"></a>
+      <a><img src="assets/hamburger.svg" alt="" class="hamburger" ng-click="openStore()"></a>
       <div class="container">
         <div class="center-logo">
           <img src="assets/logo.svg" class="logo" alt="">
