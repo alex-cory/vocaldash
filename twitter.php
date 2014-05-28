@@ -50,7 +50,7 @@ function searchTweetsByPopularity()
 	$results = $twitter->setGetfield($getfield)
 	            	   ->buildOauth($url, $requestMethod)
 	            	   ->performRequest();
-	return d($getfield, $results);
+	return $results;
 }
 
 searchTweetsByPopularity();
