@@ -60,6 +60,15 @@ li {
 	list-style: none;
 }
 
+table {
+	border-radius: 5px;
+	border: 1px solid #a1a1a1;
+}
+
+tr {
+	border-top: 1px solid #a1a1a1;
+}
+
 .image-container {
 	padding: 20px;
 	width: 100%;
