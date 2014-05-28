@@ -28,7 +28,7 @@ function searchTweetsByHashtag()
 	print_r($tweets);
 }
 
-echo searchTweetsByHashtag();
+
 
 
 function searchTweetsByPopularity()
@@ -55,6 +55,15 @@ function searchTweetsByPopularity()
 	            	   ->performRequest();
 	print_r($results);
 }
+
+
+
+
+
+searchTweetsByPopularity();  
+
+
+
 
 // class Twitter {
 
