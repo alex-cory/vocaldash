@@ -111,7 +111,12 @@ $results = exec($cmd);
 
 	// } else {
 	// 	// There was an error, so just use the cached copy
-		$results = json_decode( $results, TRUE );
+     echo $results;
+
+
+
+    /*
+        $results = json_decode( $results, TRUE );
 		// d($results);
 
 		$SearchForImagesResult = $results['SearchForImagesResult'];
