@@ -1,4 +1,55 @@
+body {
+	background-color: #ecf0f1;
+}
+
+input {
+	width: 100%;
+	border: 1px solid #a1a1a1;
+	height: 40px;
+	font-size: 18px !important;
+	padding-left: 10px;
+}
+
+.logo {
+	float: left;
+	width: 20%;
+	margin-top: 20px;
+}
+
+.mic-icon {
+	width: 50px;
+}
 
 .mic-main {
-	margin-top: 35vh;
+	margin-top: 30vh;
+}
+
+.mic-main img {
+	margin-bottom: 20px;
+}
+
+.center-container {
+	margin: auto;
+}
+
+.center-container p {
+	text-align: center;
+	font-size: 18px;
+	color: #2c3e50;
+	font-weight: bold;
+}
+
+ul {
+	padding: 0;
+	font-size: 18px;
+	line-height: 25px;
+	margin-top: 50px !important;
+	list-style: none;
+	color: #a1a1a1;
+	font-weight: 300;
+	color: #95a5a6;
+}
+
+li {
+	list-style: none;
 }
