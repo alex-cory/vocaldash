@@ -1,4 +1,5 @@
 <?php
+echo $_GET['filter'];
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
