@@ -82,7 +82,7 @@ angular.module('main', [])
     $http.get("/getty.php?filter=" + filter).success(function(data){
       console.log("data = " + data);
       var images = data;
-      console.log("filter = " + filter);
+      console.log(filter);
       $scope.outs.unshift({'type': 'images', 'data': images});
     }).error(function(data){
       console.log("error = " + data);
