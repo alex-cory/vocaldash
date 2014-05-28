@@ -1,68 +1,149 @@
 <?php
+$cmd ='
+curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
+ "RequestHeader":{
+   "Token":"2+vonKHqbt0KNAK81a/RDXI0E7tgG1jiUnUhG3Jhqnz82SuIMECo6qLGJEIyc7/Vj8cA1IjTGTkcLojEvBXGePEX67Qkka7DEeYds7Pmd4osJO1nKyqJ1uL8CCz6+XMNyKEq1XRbNV0lLQ48serRb73H8oBXlxSH0wBgU4oYM7I=|77u/UnIxWWp2NTIwUXhySFAxOVB4eVUKMTE1NTcKCnQrVm5CZz09CnYreG5CZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+   "Detail":"",
+   "CoordinationId":""
+ },
+ "SearchForImagesRequestBody":{
+   "CountryCode":"USA",
+   "Filter":{
+     "Collections":{
+       "Ids":[
+         ""
+       ],
+       "Mode":""
+     },
+     "EditorialSegments":[
+       ""
+     ],
+     "EditorialSources":{
+       "Ids":[
+         ""
+       ],
+       "Mode":""
+     },
+     "ExcludeNudity":"true",
+     "FileTypes":[
+       ""
+     ],
+     "GraphicStyles":[
+       ""
+     ],
+     "ImageFamilies":[
+       ""
+     ],
+     "LicensingModels":[
+       ""
+     ],
+     "Orientations":[
+       ""
+     ],
+     "ProductOfferings":[
+       ""
+     ],
+     "Refinements":[
+       {
+         "Category":"",
+         "Id":""
+       }
+     ]
+   },
+   "Language":"en-us",
+   "Query":{
+     "KeywordIds":[
+       ""
+     ],
+     "SpecificPersons":[
+       ""
+     ],
+     "EntityUris":[
+       ""
+     ],
+     "DateCreatedRange":{
+       "EndDate":"",
+       "StartDate":""
+     },
+     "EventId":"",
+     "SearchPhrase":"dog"
+   },
+   "ResultOptions":{
+     "IncludeKeywords":false,
+     "ItemCount":10,
+     "ItemStartNumber":1,
+     "RefinementOptionsSet":"",
+     "EditorialSortOrder":"",
+     "CreativeSortOrder":"",
+     "BlendedSortOrder":""
+   }
+ }
+}\' https://connect.gettyimages.com/v2/search/SearchForImages';
+$results = exec($cmd);
 
-$url = 'https://connect.gettyimages.com/oauth2/token';
 
+// - - - - - - - - - - -- --  - - - - - - - - - -  - - - - -
+	// $c = curl_init( "https://connect.gettyimages.com/oauth2/token" );
 
-// use key 'http' even if you send the request to https://...
-$options = array(
-    'http' => array(
-        'method'  => 'POST',
-        'content' => 'grant_type=client_credentials&client_id=dte5xunv2zb9wtpawtsfwkvg&client_secret=nzakAxZy6PYuXcMXnrmvHGFcsy2pdRavvkfTveEjMTtGZ',
-    ),
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
+	// // Set the cURL options
+	// curl_setopt( $c, CURLOPT_RETURNTRANSFER, TRUE );
+	// // curl_setopt( $c, CURLOPT_USERAGENT, "Alfred Gist Workflow" );
+	// // curl_setopt( $c, CURLOPT_USERPWD, "$username:$password" );
+	// curl_setopt( $c, CURLOPT_CONNECTTIMEOUT, 10 );
 
-var_dump($result);
-$token = stripslashes(json_encode($result));
-print_r($token);
+	// // Execute the cURL command
+	// $images = curl_exec( $c );
 
-// search string, let's look up "tree"
-$searchPhrase = "tree";
+	// // grab the error if there is one
+	// $error = curl_errno( $c );
 
-// build array to query api for images
-$searchImagesArray = array (
-	"RequestHeader" => array (
-		"Token" => $token['access_token'] // Token received from a CreateSession/RenewSession API call
-	),
-	"SearchForImagesRequestBody" => array (
- 		"Query" => array (
-			"SearchPhrase" => $searchPhrase
- 		),
- 		"ResultOptions" => array (
-			"IncludeKeywords" => "false",
- 			"ItemCount" => 25, // return 25 items
- 			"ItemStartNumber" => 1 // 1-based int, start at the first page
- 		)
-	)
-);
+	// if ( ! curl_errno( $c ) )
+	// {
+	// 	// Turn the github json into an associative array
+	// 	$images = json_decode( $images, TRUE );
+	// 	// Don't use the cache
+	// 	$usecache = FALSE;
+	// 	// there was no error
+	// 	$error = FALSE;
 
-// encode to json
-echo json_encode($searchImagesArray);
+	// 	// DEBUGGING
+	// 	// echo 'I made it to 1' . "\n";
 
+	// } else {
+	// 	// There was an error, so just use the cached copy
+		$results = json_decode( $results, TRUE );
+		// d($results);
 
-$endpoint = "http://connect.gettyimages.com/v2/search/SearchForImages";
+		$SearchForImagesResult = $results['SearchForImagesResult'];
+		// d($SearchForImagesResult);
 
-// create client and set json data and datatype
-$httpClient = new Zend_Http_Client($endpoint);
-$httpClient->setRawData($json, 'application/json');
-$httpClient->setMethod(Zend_Http_Client::POST); // all getty api requests are POST
+		$images = array();
+		$images = $SearchForImagesResult['Images'];
+		// d($images);
 
-// returns Zend_Http_Response
-$response = $httpClient->request();
+		$ul = "<ul>";
+		foreach ($images as $image) {
+			$i = array(
+				'title'    => $image['Title'], //[key( $image['stdClass'] )]['Title'],
+				// this is the raw url in ['files'][TITLE]['raw_url']
+				'url'      => $image['UrlThumb'], //[key( $image['stdClass'] )]['UrlThumb'],
+			);
+			$li = '<li><img src="' . $i['url'] . '" /><p>' . $i['title'] . '</p></li>';
+			$ul .= $li;
+			// d($i);
 
-$body = null;
+		}
+		$ul .= "</ul>";
 
-// evaluate for success response
-if ($response->isSuccessful()) {
-	$body = json_decode($response->getBody()); // returns stdObject
-} else {
-	// report error
-}
+		echo $ul;
 
-// retrieves the image array of stdObjects
-$images = $body->SearchForImagesResult->Images;
-echo json_encode($images);
-// total count of items matching this search in the API
-$itemTotalCount = $body->SearchForImagesResult->ItemTotalCount;
-?>
+	// 	// use the cache
+	// 	$usecache = TRUE;
+
+	// 	// DEBUGGING
+	// 	// echo 'I made it to 2' . "\n";
+
+	// }
+
+	// // Close the cURL object to free resources
+	// curl_close( $c );
