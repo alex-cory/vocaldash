@@ -2,7 +2,11 @@
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
+<<<<<<< HEAD
    "V+xIzpaAildjJj7XGaIHQ+/o62LSdH0muPBDKPZd74XMRxJQtjus5DRkucgsyPBNxfSpjekq0bxajEB/143vX3JVj8OydhJsiPMXgcSE4bY/io010Tmune/L3nAdQyH8lwQQEkkl+L+nffIJFO5SidWYwsNMbOewYi1xVBFxd1E=|77u/K1dMZkI4U0ZmK2NxUTRLUldzYjgKMTE1NTcKCk15cG9CZz09Ck96Rm9CZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+=======
+   "Token":"alVEyZWTLok+ITQ58TzVFMLgOp5EvYwc8Q3mD53T0TTBC9vY0VSxfyj32KbTQC9lwX/inGAf1qUtmpuwjeJ7eNwB8+8ThN1jnpalh/i6omlKKsAqi1TGcTaJQO+kaRQm6OLSfb1s85SWXu6e9Gbj0nuW4yc94H5zZzSt9I29YPE=|77u/MklORHN5ZlhrQnJ5d0RUQmhjc1kKMTE1NTcKCmsveG5CZz09Cm13Tm9CZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+>>>>>>> 6a97b9dfb26ac859bcd1209d0850242702df533d
    "Detail":"",
    "CoordinationId":""
  },
@@ -66,7 +70,7 @@ curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
        "StartDate":""
      },
      "EventId":"",
-     "SearchPhrase":"dog"
+     "SearchPhrase":"'. $_GET['filter'].'"
    },
    "ResultOptions":{
      "IncludeKeywords":false,
@@ -111,7 +115,12 @@ $results = exec($cmd);
 
 	// } else {
 	// 	// There was an error, so just use the cached copy
-		$results = json_decode( $results, TRUE );
+     echo $results;
+
+
+
+    /*
+        $results = json_decode( $results, TRUE );
 		// d($results);
 
 		$SearchForImagesResult = $results['SearchForImagesResult'];
@@ -122,6 +131,7 @@ $results = exec($cmd);
 		// d($images);
 
 		$ul = "<ul>";
+        var_dump($images);
 		foreach ($images as $image) {
 			$i = array(
 				'title'    => $image['Title'],
