@@ -1,4 +1,4 @@
-/Users/alexcory/Google Drive/Developer/git repositories/apicon<?php
+<?php
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
