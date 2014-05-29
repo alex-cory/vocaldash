@@ -1,8 +1,8 @@
-<?php
+/Users/alexcory/Google Drive/Developer/git repositories/apicon<?php
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
-   "Token":"U1OyHrH5kE5Aduq4kDHsN1ExMVzZPSdZFO0JEVCFLPg2XcnWuhJxc9LMAgrz2lt7SFe1L4uWSnitxFEf6y3npUdsxqkhG5MFdxRRUImKwe8avAsr4dOUdJLUoRJtHxfXQCNSmu3wMznMe3cuFyUJGdcjzjNCmzAvaIjlTIkkZfQ=|77u/OTc5bnlLNkZMblRsM2tJUkxlbWsKMTE1NTcKCkxRVm9CZz09Ck5ReG9CZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+   "Token":"TjLeDWbReRpOC630Pk7meWIFxs96Fcrb/EAmZapdrWd/njyw4EXs0Ig0VzjKnIMtSrdojcdbC7PXa5/zdgkoVv++KCUbx/H7Sk1nlsRQldxl7A/NDmjWOsOteLEsPwlUWd8MOiPnbcujBIalDxlo+0lGpBWlm3QwNoz1giwc+Ps=|77u/VUdmekpTWDVrZjhjVUtZRm9hWWEKMTE1NTcKClVTOXBCZz09CldUWnBCZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
    "Detail":"",
    "CoordinationId":""
  },
@@ -130,7 +130,7 @@ $results = exec($cmd);
         var_dump($images);
 		foreach ($images as $image) {
 			$i = array(
-				'title'    => $image['Title'], //[key( $image['stdClass'] )]['Title'],
+				'title'    => $image['Title'],
 				// this is the raw url in ['files'][TITLE]['raw_url']
 				'url'      => $image['UrlThumb'], //[key( $image['stdClass'] )]['UrlThumb'],
 			);
