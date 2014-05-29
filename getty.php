@@ -1,4 +1,4 @@
-<?php
+/Users/alexcory/Google Drive/Developer/git repositories/apicon<?php
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
@@ -130,7 +130,7 @@ $results = exec($cmd);
         var_dump($images);
 		foreach ($images as $image) {
 			$i = array(
-				'title'    => $image['Title'], //[key( $image['stdClass'] )]['Title'],
+				'title'    => $image['Title'],
 				// this is the raw url in ['files'][TITLE]['raw_url']
 				'url'      => $image['UrlThumb'], //[key( $image['stdClass'] )]['UrlThumb'],
 			);
