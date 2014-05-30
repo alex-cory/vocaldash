@@ -5,7 +5,7 @@ curl -H "CONTENT-Type: application/json" -X POST -d \'{
     "client_secret": "nzakAxZy6PYuXcMXnrmvHGFcsy2pdRavvkfTveEjMTtGZ",
     "grant_type": "client_credentials"
   }\' https://connect.gettyimages.com/oauth2/token ';
-print_r(exec($auth_token););
+print_r(exec($auth_token));
 
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
