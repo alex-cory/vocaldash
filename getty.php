@@ -1,12 +1,14 @@
 <?php
-$auth_token = '
+/*$auth_token = '
 curl -H "CONTENT-Type: application/json" -X POST -d \'{
-    "client_id" "dte5xunv2zb9wtpawtsfwkvg":,
-    "client_secret": "nzakAxZy6PYuXcMXnrmvHGFcsy2pdRavvkfTveEjMTtGZ",
-    "grant_type": "client_credentials"
+    "client_id" "aneeqpg9wr7veqmzb3h2gqqy":,
+    "client_secret": "B5VBMYbaN3rweUFUNQkQ9hnh47CNkQZJKATBEKxZNJt3k",
+    "grant_type": "authorization_code"
   }\' https://connect.gettyimages.com/oauth2/token ';
 print_r(exec($auth_token));
-
+        */
+$cmd ='curl -X GET https://connect.gettyimages.com/oauth2/auth/?response_type=token&client_id=s6BhdRkqt3&state=xyz'
+print_r(exec($cmd));
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
@@ -88,6 +90,7 @@ curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  }
 }\' https://connect.gettyimages.com/v2/search/SearchForImages';
 $results = exec($cmd);
+
 
 
 // - - - - - - - - - - -- --  - - - - - - - - - -  - - - - -
