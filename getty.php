@@ -7,7 +7,7 @@ curl -H "CONTENT-Type: application/json" -X POST -d \'{
   }\' https://connect.gettyimages.com/oauth2/token ';
 print_r(exec($auth_token));
         */
-$cmd ='curl -X GET https://connect.gettyimages.com/oauth2/auth/?response_type=token&client_id=s6BhdRkqt3&state=xyz'
+$cmd ='curl -X GET https://connect.gettyimages.com/oauth2/auth/?response_type=token&client_id=s6BhdRkqt3&state=xyz';
 print_r(exec($cmd));
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
