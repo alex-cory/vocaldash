@@ -1,9 +1,16 @@
 <?php
+$auth_token = '
+curl -H "CONTENT-Type: application/json" -X POST -d \'{
+    "client_id" "dte5xunv2zb9wtpawtsfwkvg":,
+    "client_secret": "nzakAxZy6PYuXcMXnrmvHGFcsy2pdRavvkfTveEjMTtGZ",
+    "grant_type": "client_credentials"
+  }\' https://connect.gettyimages.com/oauth2/token ';
+print_r(exec($auth_token););
 
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
-   "Token":"FCHhoutujr1EDDrRAOsdS4iByY2AHgjeUIFpzIdvm5kh5rHkXKMxahcaT04iq4fCbBxC2dkzVnI+haYYNQ/bcB/XfQS2B/M8CTuFwOhtr1kzHk/j/b/ZWrjnZQCmrRedUNR53Wykx66Z81MArBDqw17ZuRg1hcM4EZWaQYdkSxM=|77u/cWF0T3hQSHF4NmROcUtaZDBXTGQKMTE1NTcKCi9iQnBCZz09CkJiaHBCZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+   "Token":"TjLeDWbReRpOC630Pk7meWIFxs96Fcrb/EAmZapdrWd/njyw4EXs0Ig0VzjKnIMtSrdojcdbC7PXa5/zdgkoVv++KCUbx/H7Sk1nlsRQldxl7A/NDmjWOsOteLEsPwlUWd8MOiPnbcujBIalDxlo+0lGpBWlm3QwNoz1giwc+Ps=|77u/VUdmekpTWDVrZjhjVUtZRm9hWWEKMTE1NTcKClVTOXBCZz09CldUWnBCZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
    "Detail":"",
    "CoordinationId":""
  },
