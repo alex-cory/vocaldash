@@ -1,12 +1,9 @@
-
-
-
-
 angular.module('main', [])
 
 .config(function($httpProvider){
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 })
+
 .controller('userInput', function($scope, $http){
   $scope.active = false;
   $scope.shopping = false;
@@ -65,7 +62,7 @@ angular.module('main', [])
     }
   };
   mic.connect("O5OAGEKON63WTIBJTHRD3SXOOTJEZWSV");
-    $scope.typeAction = function(event){
+  $scope.typeAction = function(event){
     if(event.keyCode != 13) return;
     executeCommand($scope.input);
   };
@@ -123,9 +120,7 @@ angular.module('main', [])
       }
       $scope.$apply();
     }
-
     }).error(function(data){
-
     });
   };
 
