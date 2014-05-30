@@ -7,12 +7,12 @@ curl -H "CONTENT-Type: application/json" -X POST -d \'{
   }\' https://connect.gettyimages.com/oauth2/token ';
 print_r(exec($auth_token));
         */
-$cmd ='curl -X GET https://connect.gettyimages.com/oauth2/auth/?response_type=token&client_id=aneeqpg9wr7veqmzb3h2gqqy&state=xyz';
-print_r(exec($cmd));
+/*$cmd ='curl -X GET https://connect.gettyimages.com/oauth2/auth/?response_type=token&client_id=aneeqpg9wr7veqmzb3h2gqqy&state=xyz';
+print_r(exec($cmd));*/
 $cmd ='
 curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
  "RequestHeader":{
-   "Token":"TjLeDWbReRpOC630Pk7meWIFxs96Fcrb/EAmZapdrWd/njyw4EXs0Ig0VzjKnIMtSrdojcdbC7PXa5/zdgkoVv++KCUbx/H7Sk1nlsRQldxl7A/NDmjWOsOteLEsPwlUWd8MOiPnbcujBIalDxlo+0lGpBWlm3QwNoz1giwc+Ps=|77u/VUdmekpTWDVrZjhjVUtZRm9hWWEKMTE1NTcKClVTOXBCZz09CldUWnBCZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
+   "Token":"ZmY5hy0pBInyc1FCQ4xpHvdY6TvW7FMgVhaq49XDCIt1P+Z+hu0uYbBbZ26KQO06TI1gvh2gsSYktP+OvnzadefL0alWuQ5vmjwE95D0bY9MxbbKvU6g6WY0DnySLAVgK7I+Zkwd2nB6Di5dtUyKH0lEbsmrvePuMa6zdf/0iRA=|77u/WkdtSTRKQnZwSWk2SElzbTc1NlAKMTE1NTcKCmlHUnFCZz09CmtHdHFCZz09CjAKNnRkZ3RjYXJua3ZwYmFoNnN6eHRlaHNwCjEyNy4wLjAuMQowCjExNTU3CgoxMTU1Nwo=|3",
    "Detail":"",
    "CoordinationId":""
  },
