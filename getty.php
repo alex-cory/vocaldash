@@ -89,7 +89,7 @@ curl -# -H "Content-Type: application/json" -X POST -g  -d \'{
    }
  }
 }\' https://connect.gettyimages.com/v2/search/SearchForImages';
-//$results = exec($cmd);
+$results = exec($cmd);
 
 
 
